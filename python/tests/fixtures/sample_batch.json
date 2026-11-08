@@ -6,15 +6,15 @@
   "agent": "test-agent",
   "traces": [
     {
-      "trace_id": "fc58a5c9a1ae8ed63af43996ea1bc1f0",
+      "trace_id": "b17adb4546cf4e61a21d84c69cd9e9f4",
       "spans": [
         {
-          "span_id": "0136bc4a27d798b3",
-          "parent_id": "f9f29c0b73af19ec",
+          "span_id": "4b44f89500d0a3b9",
+          "parent_id": "817a052afe38045f",
           "name": "ChatOpenAI",
           "span_kind": "LLM",
-          "start_time": "2026-11-07T23:32:21.051Z",
-          "end_time": "2026-11-07T23:32:21.051Z",
+          "start_time": "2026-11-08T00:06:07.544Z",
+          "end_time": "2026-11-08T00:06:07.544Z",
           "status_code": "OK",
           "attributes": {
             "llm.model_name": "gpt-4o-mini",
@@ -29,24 +29,24 @@
           }
         },
         {
-          "span_id": "f9f29c0b73af19ec",
-          "parent_id": "ef0da695d959f946",
+          "span_id": "817a052afe38045f",
+          "parent_id": "6132cbdd738b307f",
           "name": "triage",
           "span_kind": "CHAIN",
-          "start_time": "2026-11-07T23:32:21.051Z",
-          "end_time": "2026-11-07T23:32:21.052Z",
+          "start_time": "2026-11-08T00:06:07.544Z",
+          "end_time": "2026-11-08T00:06:07.545Z",
           "status_code": "OK",
           "attributes": {
             "metadata": "{\"pipeline_step\":\"triage\"}"
           }
         },
         {
-          "span_id": "62838a919d4fe4be",
-          "parent_id": "ef0da695d959f946",
+          "span_id": "b1854c7adf2ba665",
+          "parent_id": "6132cbdd738b307f",
           "name": "fetch_order",
           "span_kind": "TOOL",
-          "start_time": "2026-11-07T23:32:21.052Z",
-          "end_time": "2026-11-07T23:32:21.052Z",
+          "start_time": "2026-11-08T00:06:07.545Z",
+          "end_time": "2026-11-08T00:06:07.545Z",
           "status_code": "OK",
           "attributes": {
             "tool.name": "fetch_order"
@@ -58,12 +58,12 @@
           }
         },
         {
-          "span_id": "bcc5a03eb551d180",
-          "parent_id": "ef0da695d959f946",
+          "span_id": "7fdd68cd13484be0",
+          "parent_id": "6132cbdd738b307f",
           "name": "fetch_order",
           "span_kind": "TOOL",
-          "start_time": "2026-11-07T23:32:21.052Z",
-          "end_time": "2026-11-07T23:32:21.052Z",
+          "start_time": "2026-11-08T00:06:07.545Z",
+          "end_time": "2026-11-08T00:06:07.545Z",
           "status_code": "OK",
           "attributes": {
             "tool.name": "fetch_order"
@@ -75,12 +75,12 @@
           }
         },
         {
-          "span_id": "ef0da695d959f946",
+          "span_id": "6132cbdd738b307f",
           "parent_id": null,
           "name": "handle_ticket",
           "span_kind": "AGENT",
-          "start_time": "2026-11-07T23:32:21.051Z",
-          "end_time": "2026-11-07T23:32:21.052Z",
+          "start_time": "2026-11-08T00:06:07.544Z",
+          "end_time": "2026-11-08T00:06:07.545Z",
           "status_code": "OK",
           "attributes": {}
         }

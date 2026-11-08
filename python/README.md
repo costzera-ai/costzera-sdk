@@ -39,7 +39,7 @@ Costzera receives the model, token counts, timings, errors, tool names, and the
 completions, tool arguments, tool results or retrieved documents. User and
 session ids are sent as fingerprints.
 
-This is enforced by allowlist in [`costzera/_wire.py`](src/costzera/_wire.py):
+This is enforced by allowlist in [`costzera/_wire.py`](https://github.com/costzera-ai/costzera-sdk/blob/main/python/src/costzera/_wire.py):
 a span is converted into what is sent, and only the attributes named there are
 copied. Anything else, including anything a framework adds in a future
 release, is never read into the payload.

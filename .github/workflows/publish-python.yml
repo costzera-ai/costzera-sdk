@@ -1,0 +1,74 @@
+# Publish the Python SDK to PyPI when a `python-vX.Y.Z` tag is pushed.
+#
+# Uses PyPI trusted publishing: PyPI trusts this workflow, in this repository,
+# under the `pypi` environment, so no API token exists anywhere. Configured at
+# https://pypi.org/manage/account/publishing/ (project `costzera`, owner
+# `costzera-ai`, repository `costzera-sdk`, workflow `publish-python.yml`,
+# environment `pypi`).
+
+name: Publish Python SDK
+
+on:
+  push:
+    tags: ["python-v*"]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ["3.9", "3.12"]
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: pip install -e ".[dev]"
+      - run: pytest -q
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: The tag matches the package version
+        run: |
+          tag="${GITHUB_REF_NAME#python-v}"
+          project=$(python -c "import tomllib; print(tomllib.load(open('pyproject.toml','rb'))['project']['version'])")
+          module=$(grep -Po '__version__ = "\K[^"]+' src/costzera/__init__.py)
+          echo "tag=$tag pyproject=$project module=$module"
+          test "$tag" = "$project" && test "$tag" = "$module"
+      - run: pip install build twine
+      - run: python -m build
+      - run: twine check dist/*
+      - uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: python/dist/
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/project/costzera/
+    permissions:
+      id-token: write   # the trusted-publishing credential; nothing else
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist/
+      - uses: pypa/gh-action-pypi-publish@release/v1
