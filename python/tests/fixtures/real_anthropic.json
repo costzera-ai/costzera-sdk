@@ -1,0 +1,91 @@
+{
+  "sdk": {
+    "name": "costzera-python",
+    "version": "0.1.0"
+  },
+  "agent": "verify-agent",
+  "traces": [
+    {
+      "trace_id": "3b81673ce0db007233c79d93c3119fe4",
+      "spans": [
+        {
+          "span_id": "d46e3ed4ebcac5a9",
+          "parent_id": "cfed39abbf799129",
+          "name": "messages.create",
+          "span_kind": "LLM",
+          "start_time": "2026-11-07T23:32:27.118Z",
+          "end_time": "2026-11-07T23:32:28.393Z",
+          "status_code": "OK",
+          "attributes": {
+            "llm.provider": "anthropic",
+            "llm.system": "anthropic",
+            "llm.request.model_name": "claude-opus-5-5",
+            "llm.model_name": "claude-opus-5-5",
+            "llm.response.model_name": "claude-opus-5-5",
+            "llm.token_count.prompt": 409,
+            "llm.token_count.completion": 54,
+            "llm.token_count.total": 463
+          },
+          "measured": {
+            "input_chars": 435,
+            "output_chars": 700,
+            "input_hash": "d062d15468b3849451f2f0b8ecc6313525d3db03374c08ce49b7396d8d119aa8",
+            "finish_reason": "tool_use"
+          }
+        },
+        {
+          "span_id": "db63b393c5e01a95",
+          "parent_id": "cfed39abbf799129",
+          "name": "get_order_status",
+          "span_kind": "TOOL",
+          "start_time": "2026-11-07T23:32:28.393Z",
+          "end_time": "2026-11-07T23:32:28.393Z",
+          "status_code": "OK",
+          "attributes": {
+            "tool.name": "get_order_status"
+          },
+          "measured": {
+            "input_chars": 46,
+            "output_chars": 78,
+            "input_hash": "6dca7d6512d6d23e1331ba5c4e3b5b26aae12405ca7e442ae6311ea288fe56fc"
+          }
+        },
+        {
+          "span_id": "35e290fcbf062d9d",
+          "parent_id": "cfed39abbf799129",
+          "name": "messages.create",
+          "span_kind": "LLM",
+          "start_time": "2026-11-07T23:32:28.394Z",
+          "end_time": "2026-11-07T23:32:30.209Z",
+          "status_code": "OK",
+          "attributes": {
+            "llm.provider": "anthropic",
+            "llm.system": "anthropic",
+            "llm.request.model_name": "claude-opus-5-5",
+            "llm.model_name": "claude-opus-5-5",
+            "llm.response.model_name": "claude-opus-5-5",
+            "llm.token_count.prompt": 507,
+            "llm.token_count.completion": 50,
+            "llm.token_count.total": 557
+          },
+          "measured": {
+            "input_chars": 834,
+            "output_chars": 726,
+            "input_hash": "ccd276aff2f8e36442c7a9dca6ede3f4d8b9625b631a59c59dd515fb887a7ce7",
+            "finish_reason": "end_turn"
+          }
+        },
+        {
+          "span_id": "cfed39abbf799129",
+          "parent_id": null,
+          "name": "anthropic_sdk_run",
+          "span_kind": "AGENT",
+          "start_time": "2026-11-07T23:32:27.118Z",
+          "end_time": "2026-11-07T23:32:30.209Z",
+          "status_code": "OK",
+          "attributes": {}
+        }
+      ]
+    }
+  ]
+}

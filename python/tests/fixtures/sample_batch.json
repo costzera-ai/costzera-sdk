@@ -1,0 +1,90 @@
+{
+  "sdk": {
+    "name": "costzera-python",
+    "version": "test"
+  },
+  "agent": "test-agent",
+  "traces": [
+    {
+      "trace_id": "fc58a5c9a1ae8ed63af43996ea1bc1f0",
+      "spans": [
+        {
+          "span_id": "0136bc4a27d798b3",
+          "parent_id": "f9f29c0b73af19ec",
+          "name": "ChatOpenAI",
+          "span_kind": "LLM",
+          "start_time": "2026-11-07T23:32:21.051Z",
+          "end_time": "2026-11-07T23:32:21.051Z",
+          "status_code": "OK",
+          "attributes": {
+            "llm.model_name": "gpt-4o-mini",
+            "llm.token_count.prompt": 900,
+            "llm.token_count.completion": 60
+          },
+          "measured": {
+            "input_chars": 5,
+            "output_chars": 40,
+            "input_hash": "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+            "finish_reason": "stop"
+          }
+        },
+        {
+          "span_id": "f9f29c0b73af19ec",
+          "parent_id": "ef0da695d959f946",
+          "name": "triage",
+          "span_kind": "CHAIN",
+          "start_time": "2026-11-07T23:32:21.051Z",
+          "end_time": "2026-11-07T23:32:21.052Z",
+          "status_code": "OK",
+          "attributes": {
+            "metadata": "{\"pipeline_step\":\"triage\"}"
+          }
+        },
+        {
+          "span_id": "62838a919d4fe4be",
+          "parent_id": "ef0da695d959f946",
+          "name": "fetch_order",
+          "span_kind": "TOOL",
+          "start_time": "2026-11-07T23:32:21.052Z",
+          "end_time": "2026-11-07T23:32:21.052Z",
+          "status_code": "OK",
+          "attributes": {
+            "tool.name": "fetch_order"
+          },
+          "measured": {
+            "input_chars": 30,
+            "output_chars": 21,
+            "input_hash": "1841c4577ea5d82cbd973f6d52fd5357e2a2e2e3faecdbca5e33911f7f741fe6"
+          }
+        },
+        {
+          "span_id": "bcc5a03eb551d180",
+          "parent_id": "ef0da695d959f946",
+          "name": "fetch_order",
+          "span_kind": "TOOL",
+          "start_time": "2026-11-07T23:32:21.052Z",
+          "end_time": "2026-11-07T23:32:21.052Z",
+          "status_code": "OK",
+          "attributes": {
+            "tool.name": "fetch_order"
+          },
+          "measured": {
+            "input_chars": 30,
+            "output_chars": 21,
+            "input_hash": "1841c4577ea5d82cbd973f6d52fd5357e2a2e2e3faecdbca5e33911f7f741fe6"
+          }
+        },
+        {
+          "span_id": "ef0da695d959f946",
+          "parent_id": null,
+          "name": "handle_ticket",
+          "span_kind": "AGENT",
+          "start_time": "2026-11-07T23:32:21.051Z",
+          "end_time": "2026-11-07T23:32:21.052Z",
+          "status_code": "OK",
+          "attributes": {}
+        }
+      ]
+    }
+  ]
+}
